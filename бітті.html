@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на встречу</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #333;
+            padding: 20px;
+            overflow: hidden;
+            margin: 0;
+            background: black;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: black;
+        }
+
+        .video-background video {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            display: block;
+            opacity: 1;
+        }
+
+        .container {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        h1 {
+            color: #d63384;
+            font-style: italic;
+        }
+        .details {
+            font-size: 18px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+        .music-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #d63384;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-background">
+        <video id="background-video" autoplay loop muted playsinline>
+            <source src="https://www.dropbox.com/scl/fi/c5v6eui9vosj24jjtx4ry/.mp4?rlkey=9ggzvetde9x2dvpptots3rdle&st=p3ipiq9e&raw=1" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="https://www.dropbox.com/scl/fi/xn8uklsajv2cw7djwayph/moldanazar-mahabbatym-maxabatym_Vip1zLCc.mp3?rlkey=go47gd7knml376v1lmyxcvsc3&st=mxjk2our&raw=1" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио.
+    </audio>
+
+    <button class="music-button" id="play-button">Нажми сюда</button>
+
+    <div class="container" id="content">
+        <h1>Құрметті сыныбымыздың ханшайымдары!</h1>
+        <p class="details">Сіздерді мерекелеріңізбен құттықтай отыра, сіздерді керемет отырысқа шақырамыз!</p>
+        <p class="details"><strong>Орын:</strong> Кафе "Жібек Ана"</p>
+        <p class="details"><strong>Уақыт:</strong> 18:00, 9 наурыз</p>
+        <p class="details">Сіздерді тағатсыздана күтеміз!</p>
+        <p class="footer">Кездескенше! 💕</p>
+    </div>
+
+    <script>
+        document.getElementById("play-button").addEventListener("click", playMusic);
+        document.getElementById("play-button").addEventListener("touchstart", playMusic);
+
+        function playMusic() {
+            var audio = document.getElementById("bg-music");
+            var content = document.getElementById("content");
+
+            audio.play().then(() => {
+                content.style.display = "block";
+            }).catch(error => {
+                console.log("Автовоспроизведение запрещено браузером", error);
+            });
+        }
+    </script>
+</body>
+</html>
+</body>
+</html>
